@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: bmw-bi-db-server
+    runtime: python
+    region: singapore          # closest to India
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: DB_PATH
+        value: /tmp/bmw.db
+      - key: CSV_PATH
+        value: BMW_Vehicle_Inventory.csv
+      - key: MAX_RESULT_ROWS
+        value: "500"
+      - key: API_TOKEN
+        generateValue: true    # Render auto-generates a secret token
