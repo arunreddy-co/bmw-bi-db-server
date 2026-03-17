@@ -26,8 +26,8 @@ logging.basicConfig(level=logging.INFO, format="%(levelname)s  %(message)s")
 log = logging.getLogger(__name__)
 
 # ── Config ─────────────────────────────────────────────────────────
-DB_PATH     = Path(os.getenv('DB_PATH', r'C:\Users\\' + os.environ['USERNAME'] + r'\OneDrive\Desktop\bmw-dashboard\bmw.db'))
-CSV_PATH    = Path(os.getenv('CSV_PATH', r'C:\Users\\' + os.environ['USERNAME'] + r'\OneDrive\Desktop\bmw-dashboard\BMW_Vehicle_Inventory.csv'))
+DB_PATH     = Path(os.getenv("DB_PATH", "/tmp/bmw.db"))
+CSV_PATH    = Path(os.getenv("CSV_PATH", "BMW_Vehicle_Inventory.csv"))
 API_TOKEN   = os.getenv("API_TOKEN", "")        # optional — set in Render env vars
 MAX_ROWS    = int(os.getenv("MAX_RESULT_ROWS", "500"))
 
